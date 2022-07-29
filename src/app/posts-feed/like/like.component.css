@@ -1,0 +1,16 @@
+.unliked {
+  color: #6c757d;
+}
+
+.liked {
+  color: #e35969;
+}
+
+.mat-icon-button:hover {
+  color: #e35969;
+  background-color: #f8dce8;
+}
+.flex-button {
+  display: flex;
+  align-items: center;
+}

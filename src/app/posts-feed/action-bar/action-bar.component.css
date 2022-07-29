@@ -1,0 +1,31 @@
+.action-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.unliked,
+.unbookmarked,
+.comment-btn {
+  color: #6c757d;
+}
+
+.liked {
+  color: #e35969;
+}
+.bookmarked {
+  color: #4361ee;
+}
+.bookmark-btn:hover,
+.comment-btn:hover {
+  color: #4361ee;
+  background-color: rgb(51, 51, 255, 0.1);
+}
+
+.like-btn:hover {
+  color: #e35969;
+  background-color: #f8dce8;
+}
+.flex-button {
+  display: flex;
+  align-items: center;
+}

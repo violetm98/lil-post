@@ -1,0 +1,8 @@
+<div class="flex-button" [ngClass]="isLiked? 'liked': 'unliked'">
+  <button mat-icon-button class="like-button" title="like">
+    <mat-icon (click)="toggleLikeState()" class="material-icons-outlined">
+      {{iconName}}
+    </mat-icon>
+  </button>
+  <span *ngIf="likesCount>0">{{likesCount}}</span>
+</div>

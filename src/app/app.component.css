@@ -1,0 +1,22 @@
+html {
+  scroll-behavior: smooth;
+}
+.scroll-up-btn {
+  position: fixed;
+  width: 35px;
+  height: 35px;
+  color: #6c757d;
+  background-color: #ffffff;
+  bottom: 40px;
+  right: 40px;
+  cursor: pointer;
+  z-index: 99;
+  text-align: center;
+  line-height: 35px;
+  border: 1px solid #ccc;
+}
+
+.scroll-up-btn:hover {
+  background-color: #673ab7;
+  opacity: 0.2;
+}

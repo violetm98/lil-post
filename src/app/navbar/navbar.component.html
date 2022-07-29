@@ -1,0 +1,76 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+      <a mat-list-item routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <div class="nav-link-container">
+          <i class="material-icons-outlined">home</i>
+          <span class="link-text">Home</span>
+        </div>
+      </a>
+
+      <!-- <a mat-list-item routerLink="/addnew" routerLinkActive="active">
+        <div class="nav-link-container">
+          <i class="material-icons-outlined">add_circle_outline</i>
+          <span class="link-text">New</span>
+        </div>
+      </a> -->
+
+      <a mat-list-item routerLink="/settings" routerLinkActive="active">
+        <div class="nav-link-container">
+          <i class="material-icons-outlined">settings</i>
+          <span class="link-text">Settings</span>
+        </div>
+      </a>
+
+      <!-- <a mat-list-item routerLink="/post/likes/:id" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        <div class="nav-link-container">
+          <i class="material-icons-outlined">thumb_up</i>
+          <span class="link-text">Likes</span>
+        </div>
+      </a> -->
+
+      <!-- <a mat-list-item routerLink="/bookmarks" routerLinkActive="active">
+        <div class="nav-link-container">
+          <i class="material-icons-outlined">book</i>
+          <span class="link-text">Bookmarks</span>
+        </div>
+      </a> -->
+
+      <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar class="top-nav">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>
+        <button color="primary" mat-raised-button class="add-new-btn" routerLink="/addnew">Add New</button>
+      </span>
+      <span class="spacer"></span>
+      <div *ngIf="(loginStatus$ |async) as loginStatus">
+        <span class="username" *ngIf=" username">{{username |uppercase}}</span>
+        <a mat-icon-button>
+          <!-- <i class="material-icons-outlined" *ngIf="!avatar">account_circle</i> -->
+          <img class="nav-profile-img" *ngIf="(profileImg$ | async) as profileImg" [src]="profileImg"
+            [routerLink]="'./u/'+ loginUserID" />
+
+        </a>
+      </div>
+
+      <button mat-icon-button class="logout-icon" aria-label="icon-button with logout icon" title="logout"
+        (click)="logoutUser()">
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar>
+
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

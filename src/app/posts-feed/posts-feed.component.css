@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.grid-container {
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+ngx-masonry {
+  /* padding: 0; */
+  margin: 30px auto;
+}
+.grid-sizer,
+.masonry-item {
+  width: 495px;
+
+  margin-bottom: 1rem;
+}

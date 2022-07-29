@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="top-section">
+    <mat-card class="profile-card">
+      <div class="top-card">
+        <img class="bg-img" src="../../assets/beach.jpeg">
+
+      </div>
+
+      <div class="id-section">
+        <div class="profile-img-container">
+          <img *ngIf="!user" src="../../assets/blank-profile-picture.jpeg" class="profile-img">
+          <img *ngIf="user" [src]="user.profileImgURL" class="profile-img">
+        </div>
+        <div class="profile-intro">
+          <div class="profile-name">
+            <h2>{{user?.username?? 'Anonymous'}}</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-nav-bar" *ngIf="user">
+        <nav mat-tab-nav-bar>
+          <a mat-tab-link *ngFor="let link of links; index as i" [routerLink]="link" (click)="activeLink = link"
+            [active]="activeLink == link">
+            {{titles[i]}} </a>
+          <a mat-tab-link [routerLink]="bookmarkLink" (click)="activeLink = bookmarkLink"
+            [active]="activeLink == bookmarkLink" [disabled]="loginUser?._id != userId">Bookmarks</a>
+        </nav>
+
+      </div>
+
+    </mat-card>
+
+
+  </div>
+
+  <!-- <span class="hint" *ngIf="!user">The user does not exist.</span> -->
+  <!-- router outlet will show the children routes' component -->
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+
+
+
+</div>

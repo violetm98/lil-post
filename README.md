@@ -37,4 +37,4 @@ sign in page
 
 create new post
 
-![](/images/createnew.gif)
+![](/images/createnew.GIF)

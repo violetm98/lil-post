@@ -29,12 +29,12 @@ go to /backend folder and run
 
 Sign up page
 
-![Alt text](/image/signup.png)
+![Alt text](/images/signup.png)
 
 sign in page
 
-![Alt text](/image/signin.gif)
+![Alt text](/images/signin.gif)
 
 create new post
 
-![Alt text](/image/createnew.gif)
+![Alt text](/images/createnew.gif)

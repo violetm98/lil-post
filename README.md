@@ -33,7 +33,7 @@ Sign up page
 
 sign in page
 
-![Alt text](/images/signin.gif)
+![](/images/signin.GIF)
 
 create new post
 

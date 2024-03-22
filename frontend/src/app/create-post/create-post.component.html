@@ -1,0 +1,56 @@
+<mat-card class="form">
+
+  <mat-spinner *ngIf="loading && !result" diameter="25"></mat-spinner>
+  <form class="add-post-form" [formGroup]="createPostForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>title</mat-label>
+
+      <mat-hint align="end">{{title.value.length}} / 120</mat-hint>
+
+
+      <textarea #title matInput placeholder="what's your thought" formControlName="title"
+        oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"'>
+      </textarea>
+
+      <mat-error
+        *ngIf=" (createPostForm.get('title')?.hasError('maxlength') || createPostForm.get('title')?.hasError('required'))">
+        Please provide a title up to 120 characters.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="fill">
+      <mat-label>content</mat-label>
+      <mat-hint align="end">{{content.value.length}} / 400</mat-hint>
+      <textarea #content oninput='this.style.height = "";this.style.height = this.scrollHeight + "px"' matInput
+        placeholder="" formControlName="content">
+      </textarea>
+      <mat-error *ngIf="createPostForm.get('content')?.touched &&  createPostForm.get('content')?.hasError('required')">
+        Please provide content.
+      </mat-error>
+    </mat-form-field>
+
+    <div class="flex-button">
+      <button mat-mini-fab type="button" title="image" (click)="filePicker.click()" [disabled]="fileLength>=4">
+        <i class="material-icons-outlined">add_photo_alternate</i>
+      </button>
+      <input type="file" #filePicker multiple="" accept="image/*" (change)="onChange($event)">
+
+      <button class="create-button" mat-raised-button color="primary" [disabled]="!createPostForm.valid">POST</button>
+    </div>
+
+    <div class="image-preview-container">
+      <div *ngFor='let preview of imagesPreview' class="image-preview">
+
+        <img [src]="preview" />
+
+        <span class="remove-preview" (click)="deletePreview(preview)" title="remove">&times;</span>
+
+
+      </div>
+
+
+    </div>
+
+  </form>
+
+</mat-card>

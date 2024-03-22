@@ -10,12 +10,13 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, switchMap } from 'rxjs/operators';
 import { UserService } from '../services/user.service';
-import Config from '../../config.json';
+import { backendURL, upload_url } from 'src/config';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
   refresh: boolean = false;
-  exclude_url = Config.upload_url;
+  exclude_url = upload_url;
+
   private access_token: any;
 
   constructor(private http: HttpClient, private injector: Injector) {}
@@ -44,7 +45,7 @@ export class AuthInterceptor implements HttpInterceptor {
           this.refresh = true;
 
           return this.http
-            .get('http://localhost:5000/user/refresh', {
+            .get(`${backendURL}/user/refresh`, {
               withCredentials: true,
             })
             .pipe(

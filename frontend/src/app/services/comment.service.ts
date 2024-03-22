@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Comment } from '../models/comment.model';
-
+import { backendURL } from '../../config';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,13 +11,11 @@ export class CommentService {
 
   //get comments for a post
   getComments(postID: string) {
-    return this.httpClient.get(`http://localhost:5000/comment/${postID}`);
+    return this.httpClient.get(`${backendURL}/comment/${postID}`);
   }
 
   getReplyCount(commentID: string) {
-    return this.httpClient.get(
-      `http://localhost:5000/comment/reply/${commentID}`
-    );
+    return this.httpClient.get(`${backendURL}/comment/reply/${commentID}`);
   }
   addComment(
     body: string,
@@ -28,7 +26,7 @@ export class CommentService {
       Authorization: 'Bearer ' + localStorage.getItem('token'),
     };
     return this.httpClient.post<Comment>(
-      `http://localhost:5000/comment/add/${postID}`,
+      `${backendURL}/comment/add/${postID}`,
       {
         body: body,
         parentID,
@@ -40,7 +38,7 @@ export class CommentService {
 
   deleteComment(commentId: string): Observable<Comment> {
     return this.httpClient.delete<Comment>(
-      `http://localhost:5000/comment/delete/${commentId}`
+      `${backendURL}/comment/delete/${commentId}`
     );
   }
 }

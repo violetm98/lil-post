@@ -1,8 +1,10 @@
+import { backendURL } from '../config';
+
 export const environment = {
   production: false,
-  BASE_URL: 'http://localhost:5000',
+  BASE_URL: backendURL,
   POST: {
-    POST_BASE_URL: 'http://localhost:5000/post/',
+    POST_BASE_URL: `${backendURL}/post/`,
     ADD_NEW_POST: 'add',
     GET_ALL_POSTS: 'list',
     GET_A_POST: 'view',
@@ -11,7 +13,7 @@ export const environment = {
     SEARCH_POST: 'search',
   },
   USER: {
-    USER_BASE_URL: 'http://localhost:5000/user/',
+    USER_BASE_URL: `${backendURL}/user/`,
     SIGN_UP_USER: 'signup',
     LOG_IN_USER: 'login',
     GET_USER: 'view/profile',
@@ -23,7 +25,7 @@ export const environment = {
     LOGOUT_USER: 'logout',
   },
   LIKE: {
-    LIKE_BASE_URL: 'http://localhost:5000/like/',
+    LIKE_BASE_URL: `${backendURL}/like/`,
     LIKE_COUNT: 'count',
     LIKE_STATUS: 'status',
     ADD_LIKE: 'add',

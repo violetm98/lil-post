@@ -37,7 +37,7 @@ export class CreatePostComponent implements OnInit {
     const postData = this.createPostForm.value;
 
     await this.getImgURL(postData);
-    console.log(postData);
+    //console.log(postData);
 
     this.postService.addNewPost(postData).subscribe({
       next: (res) => {

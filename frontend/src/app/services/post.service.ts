@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment.dev';
 import { Post } from '../models/post.model';
 import { format } from 'timeago.js';
-import Config from '../../config.json';
+import { upload_url } from 'src/config';
 
 @Injectable({
   providedIn: 'root',
@@ -44,7 +44,7 @@ export class PostService {
     data.append('upload_preset', 'small-post');
     data.append('cloud_name', 'dqdolxarl');
 
-    return this.httpClient.post(Config.upload_url, data);
+    return this.httpClient.post(upload_url, data);
   }
 
   getPostDetail(id: string) {
